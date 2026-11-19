@@ -28,7 +28,7 @@ echo hltv_tools.amxx >> ../configs/plugins.ini
 | `hltv_tools_voice` | cvar, `1` (default): HLTV hears every player. `0`: only who the game rules allow |
 | `addons/amxmodx/data/hltv_tools_players.txt` | the player count, one number and a newline, rewritten when someone connects and every 2 seconds |
 
-To record only while someone is on, have a script watch the file and send HLTV `record <name>` when the count goes above 0, and `stoprecording` once it has been 0 for a while. HLTV closes a demo properly on `stoprecording`, so the demo plays in the game.
+To record only while someone is on, have a script watch the file and send HLTV `record <name>` when the count goes above 0, and `stoprecording` once it has been 0 for a while. HLTV finishes the demo properly on `stoprecording` (it writes the directory), unlike when it gets killed.
 
 [counter-strike-podman](https://git.nnstdios.com/nnra6864/counter-strike-podman) does exactly that (`scripts/hltv.sh`), and runs [goldsrc-demo-tools](https://git.nnstdios.com/nnra6864/goldsrc-demo-tools) on each finished demo: it repairs demos left by a crash, deletes those nobody joined, and writes the voice chat of the rest to a `.mka` with a track per player.
 
